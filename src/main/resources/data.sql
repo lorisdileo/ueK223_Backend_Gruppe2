@@ -16,7 +16,11 @@ ON CONFLICT DO NOTHING;
 INSERT INTO authority(id, name)
 VALUES ('2ebf301e-6c61-4076-98e3-2a38b31daf86', 'DEFAULT'),
 ('76d2cbf6-5845-470e-ad5f-2edb9e09a868', 'USER_MODIFY'),
-('21c942db-a275-43f8-bdd6-d048c21bf5ab', 'USER_DELETE')
+('21c942db-a275-43f8-bdd6-d048c21bf5ab', 'USER_DELETE'),
+('ef4552b0-4646-434c-9a54-4d9605fd3f7f', 'BLOG_READ'),
+('d4deef35-aa2b-4753-97ef-c2710c152e22', 'BLOG_CREATE'),
+('cbd83ec7-f30c-4d78-8f59-0d0fa99553d4', 'BLOG_DELETE_BY_ID'),
+('4148cc1f-af9d-4153-9bb6-fb31a048e714', 'BLOG_MODIFY_BY_ID')
 ON CONFLICT DO NOTHING;
 
 --assign roles to users
