@@ -4,6 +4,8 @@ import com.example.demo.domain.blogpost.dto.BlogPostMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,15 +31,17 @@ public class BlogPostController {
     /**
      * Return all blogPosts from the database
      *
+     * @param pageNum current page
      * @return list of blog posts
      */
-    @GetMapping({"", "/"})
+    @GetMapping({"", "/feed/{pageNum}"})
     @Operation(
             summary = "Read All BlogPosts",
             description = "Returns all the blog posts inside the database. Can be accessed by anyone"
     )
-    public ResponseEntity<List<BlogPostDTO>> getAllBlogPosts() {
-        return ResponseEntity.ok().body(blogPostMapper.toDTOs(blogPostService.findAll()));
+    public ResponseEntity<List<BlogPostDTO>> getAllBlogPosts(@PathVariable("pageNum") int pageNum) {
+        return ResponseEntity.ok().body(blogPostMapper.toDTOs(blogPostService.findAll(PageRequest.of(pageNum, 4,
+                Sort.by("id").descending()))));
     }
 
     /**
@@ -46,7 +50,7 @@ public class BlogPostController {
      * @param id blogPost id from path
      * @return a blogPostDTO
      */
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "detailed-view/{id}")
     @PreAuthorize("hasAuthority('BLOG_READ')")
     @Operation(
             summary = "Read a BlogPost by id",
