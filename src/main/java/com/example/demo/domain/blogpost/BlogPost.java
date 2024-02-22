@@ -19,6 +19,11 @@ import lombok.Setter;
 public class BlogPost extends AbstractEntity {
 
 
+    @Column(name="title")
+    @NotNull
+    @Size(min=1, max=500, message = "has to be between 1 and 500 characters")
+    private String title;
+
     @Column(name="text")
     @NotNull
     @Size(min=1, max=500, message = "has to be between 1 and 500 characters")

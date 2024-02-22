@@ -20,6 +20,10 @@ public class BlogPostDTO extends AbstractDTO {
 
     @NotNull
     @Size(min=1, max=500, message = "has to be between 1 and 500 characters")
+    private String title;
+
+    @NotNull
+    @Size(min=1, max=500, message = "has to be between 1 and 500 characters")
     private String text;
 
     @NotNull
