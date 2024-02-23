@@ -1,6 +1,7 @@
 package com.example.demo.domain.blogpost;
 import com.example.demo.domain.blogpost.dto.BlogPostDTO;
 import com.example.demo.domain.blogpost.dto.BlogPostMapper;
+import com.example.demo.domain.user.User;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,6 @@ public class BlogPostController {
     /**
      * Return all blogPosts from the database
      *
-     * @param pageNum current page
      * @return list of blog posts
      */
     @GetMapping({"", "/feed"})
@@ -46,7 +46,7 @@ public class BlogPostController {
     @GetMapping({"", "/feed/{pageNum}"})
     @Operation(
             summary = "Read All BlogPosts",
-            description = "Returns all the blog posts inside the database. Can be accessed by anyone"
+            description = "Returns all the blog posts with paging inside the database. Can be accessed by anyone"
     )
     public ResponseEntity<List<BlogPostDTO>> getAllBlogPostsWithPaging(@PathVariable("pageNum") int pageNum) {
         return ResponseEntity.ok().body(blogPostMapper.toDTOs(blogPostService.findAll(PageRequest.of(pageNum, 4,

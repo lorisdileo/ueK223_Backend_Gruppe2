@@ -2,6 +2,8 @@ package com.example.demo.domain.blogpost;
 
 import com.example.demo.core.generic.AbstractEntity;
 import com.example.demo.domain.user.User;
+import com.example.demo.domain.user.dto.UserDTO;
+import com.example.demo.domain.user.dto.UserMinimalDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
