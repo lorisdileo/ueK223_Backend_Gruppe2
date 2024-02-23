@@ -3,6 +3,11 @@ package com.example.demo.domain.blogpost.dto;
 
 import com.example.demo.core.generic.AbstractDTO;
 import com.example.demo.domain.user.User;
+import com.example.demo.domain.user.dto.UserDTO;
+import com.example.demo.domain.user.dto.UserMinimalDTO;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -31,5 +36,5 @@ public class BlogPostDTO extends AbstractDTO {
     private String category;
 
     @NotNull
-    private User user;
+    private UserMinimalDTO user;
 }
