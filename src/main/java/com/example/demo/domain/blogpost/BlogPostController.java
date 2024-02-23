@@ -51,7 +51,6 @@ public class BlogPostController {
      * @return a blogPostDTO
      */
     @GetMapping(path = "detailed-view/{id}")
-    @PreAuthorize("hasAuthority('BLOG_READ')")
     @Operation(
             summary = "Read a BlogPost by id",
             description = "Read a blogPostDTO by id. Can be accessed by anyone"
@@ -99,7 +98,7 @@ public class BlogPostController {
      * @param id    blogPost id
      * @param blogPost updated blogPostDTO
      */
-    @PutMapping(path = "/{id}")
+    @PutMapping("/{blogId}")
     @PreAuthorize("hasAuthority('BLOG_MODIFY_BY_ID')")
     @Operation(
             summary = "Update a BlogPost",

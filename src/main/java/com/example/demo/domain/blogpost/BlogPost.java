@@ -34,7 +34,7 @@ public class BlogPost extends AbstractEntity {
     @Size(min=1, max=100, message = "has to be between 1 and 100 characters")
     private String category;
 
-    @JoinColumn(name = "author")
+    @JoinColumn(name = "user")
     @ManyToOne
     private User user;
 }

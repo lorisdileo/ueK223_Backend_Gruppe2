@@ -18,7 +18,6 @@ INSERT INTO authority(id, name)
 VALUES ('2ebf301e-6c61-4076-98e3-2a38b31daf86', 'DEFAULT'),
 ('76d2cbf6-5845-470e-ad5f-2edb9e09a868', 'USER_MODIFY'),
 ('21c942db-a275-43f8-bdd6-d048c21bf5ab', 'USER_DELETE'),
-('ef4552b0-4646-434c-9a54-4d9605fd3f7f', 'BLOG_READ'),
 ('d4deef35-aa2b-4753-97ef-c2710c152e22', 'BLOG_CREATE'),
 ('cbd83ec7-f30c-4d78-8f59-0d0fa99553d4', 'BLOG_DELETE_BY_ID'),
 ('4148cc1f-af9d-4153-9bb6-fb31a048e714', 'BLOG_MODIFY_BY_ID')
@@ -34,17 +33,17 @@ values ('ba804cb9-fa14-42a5-afaf-be488742fc54', 'd29e709c-0ff1-4f4c-a7ef-09f656c
 
 --assign authorities to roles
 INSERT INTO role_authority(role_id, authority_id)
-VALUES ('d29e709c-0ff1-4f4c-a7ef-09f656c390f1', '2ebf301e-6c61-4076-98e3-2a38b31daf86'),
-('ab505c92-7280-49fd-a7de-258e618df074', '76d2cbf6-5845-470e-ad5f-2edb9e09a868'),
-('c6aee32d-8c35-4481-8b3e-a876a39b0c02', '21c942db-a275-43f8-bdd6-d048c21bf5ab'),
-('d29e709c-0ff1-4f4c-a7ef-09f656c390f1', 'ef4552b0-4646-434c-9a54-4d9605fd3f7f'),
---USER can only use CRUD operations on his own posts
-('ab505c92-7280-49fd-a7de-258e618df074', 'ef4552b0-4646-434c-9a54-4d9605fd3f7f'),
+VALUES
+--DEFAULT role gets DEFAULT authority
+('d29e709c-0ff1-4f4c-a7ef-09f656c390f1', '2ebf301e-6c61-4076-98e3-2a38b31daf86'),
+--Admin Blog CRUD
 ('ab505c92-7280-49fd-a7de-258e618df074', 'd4deef35-aa2b-4753-97ef-c2710c152e22'),
 ('ab505c92-7280-49fd-a7de-258e618df074', 'cbd83ec7-f30c-4d78-8f59-0d0fa99553d4'),
 ('ab505c92-7280-49fd-a7de-258e618df074', '4148cc1f-af9d-4153-9bb6-fb31a048e714'),
---ADMIN can use CRUD operations on all the posts
-('c6aee32d-8c35-4481-8b3e-a876a39b0c02', 'ef4552b0-4646-434c-9a54-4d9605fd3f7f'),
+--Admin User Crud
+('ab505c92-7280-49fd-a7de-258e618df074', '76d2cbf6-5845-470e-ad5f-2edb9e09a868'),
+('ab505c92-7280-49fd-a7de-258e618df074', '21c942db-a275-43f8-bdd6-d048c21bf5ab'),
+--User Blog CRUD
 ('c6aee32d-8c35-4481-8b3e-a876a39b0c02', 'd4deef35-aa2b-4753-97ef-c2710c152e22'),
 ('c6aee32d-8c35-4481-8b3e-a876a39b0c02', 'cbd83ec7-f30c-4d78-8f59-0d0fa99553d4'),
 ('c6aee32d-8c35-4481-8b3e-a876a39b0c02', '4148cc1f-af9d-4153-9bb6-fb31a048e714')
