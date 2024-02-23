@@ -107,7 +107,7 @@ public class BlogPostController {
      * @param id    blogPost id
      * @param blogPost updated blogPostDTO
      */
-    @PutMapping("/{blogId}")
+    @PutMapping(path = "/{id}")
     @PreAuthorize("hasAuthority('BLOG_MODIFY_BY_ID')")
     @Operation(
             summary = "Update a BlogPost",
