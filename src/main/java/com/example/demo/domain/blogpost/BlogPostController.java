@@ -34,12 +34,21 @@ public class BlogPostController {
      * @param pageNum current page
      * @return list of blog posts
      */
+    @GetMapping({"", "/feed"})
+    @Operation(
+            summary = "Read All BlogPosts",
+            description = "Returns all the blog posts inside the database. Can be accessed by anyone"
+    )
+    public ResponseEntity<List<BlogPostDTO>> getAllBlogPosts() {
+        return ResponseEntity.ok().body(blogPostMapper.toDTOs(blogPostService.findAll()));
+    }
+
     @GetMapping({"", "/feed/{pageNum}"})
     @Operation(
             summary = "Read All BlogPosts",
             description = "Returns all the blog posts inside the database. Can be accessed by anyone"
     )
-    public ResponseEntity<List<BlogPostDTO>> getAllBlogPosts(@PathVariable("pageNum") int pageNum) {
+    public ResponseEntity<List<BlogPostDTO>> getAllBlogPostsWithPaging(@PathVariable("pageNum") int pageNum) {
         return ResponseEntity.ok().body(blogPostMapper.toDTOs(blogPostService.findAll(PageRequest.of(pageNum, 4,
                 Sort.by("id").descending()))));
     }
