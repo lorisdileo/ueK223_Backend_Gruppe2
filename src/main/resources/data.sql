@@ -51,7 +51,7 @@ VALUES
 
 
 --Add fake data to BlogPost
-INSERT INTO blogpost (id, title, text, category, author) VALUES
+INSERT INTO blogpost (id, title, text, category, user_id) VALUES
 ('bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7', 'title1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Technology', 'ba804cb9-fa14-42a5-afaf-be488742fc54'),
 ('117bac62-ecc1-475a-8d98-d2fecc1ff5e7', 'title2', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.', 'Travel', 'ba804cb9-fa14-42a5-afaf-be488742fc54'),
 ('85e6dbdd-f6ae-49a7-85c3-c38190d079b6', 'title3', 'Integer euismod justo at magna efficitur, vel molestie quam laoreet.', 'Food', 'ba804cb9-fa14-42a5-afaf-be488742fc54'),
