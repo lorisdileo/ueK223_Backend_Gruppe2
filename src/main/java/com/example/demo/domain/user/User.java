@@ -8,11 +8,14 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "users")
@@ -39,8 +42,8 @@ public class User extends AbstractEntity {
              inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
   private Set<Role> roles = new HashSet<>();
 
-  @OneToMany(fetch = FetchType.EAGER)
-  @JsonBackReference
+  @OneToMany(mappedBy = "user")
+  @Fetch(FetchMode.JOIN)
   private Set<BlogPost> blogPosts;
 
   public User(UUID id, String firstName, String lastName, String email, String password, Set<Role> roles) {

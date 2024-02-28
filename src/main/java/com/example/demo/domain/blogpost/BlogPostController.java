@@ -1,7 +1,7 @@
 package com.example.demo.domain.blogpost;
 import com.example.demo.domain.blogpost.dto.BlogPostDTO;
+import com.example.demo.domain.blogpost.dto.CreateBlogPostDTO;
 import com.example.demo.domain.blogpost.dto.BlogPostMapper;
-import com.example.demo.domain.user.User;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,7 @@ public class BlogPostController {
     )
     public ResponseEntity<List<BlogPostDTO>> getAllBlogPostsWithPaging(@PathVariable("pageNum") int pageNum) {
         return ResponseEntity.ok().body(blogPostMapper.toDTOs(blogPostService.findAll(PageRequest.of(pageNum, 4,
-                Sort.by("id").descending()))));
+                Sort.by("title").descending()))));
     }
 
     /**

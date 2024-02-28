@@ -1,6 +1,8 @@
 package com.example.demo.domain.user.dto;
 
 import com.example.demo.core.generic.AbstractDTO;
+import com.example.demo.domain.blogpost.BlogPost;
+import com.example.demo.domain.blogpost.dto.BlogPostDTO;
 import com.example.demo.domain.role.dto.RoleDTO;
 import java.util.Set;
 import java.util.UUID;
@@ -27,12 +29,16 @@ public class UserDTO extends AbstractDTO {
   @Valid
   private Set<RoleDTO> roles;
 
-  public UserDTO(UUID id, String firstName, String lastName, String email, Set<RoleDTO> roles) {
+  @Valid
+  private Set<BlogPostDTO> blogPosts;
+
+  public UserDTO(UUID id, String firstName, String lastName, String email, Set<RoleDTO> roles, Set<BlogPostDTO> blogPosts) {
     super(id);
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.roles = roles;
+    this.blogPosts = blogPosts;
   }
 
 }

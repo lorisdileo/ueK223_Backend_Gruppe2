@@ -4,6 +4,7 @@ import com.example.demo.core.generic.AbstractEntity;
 import com.example.demo.domain.user.User;
 import com.example.demo.domain.user.dto.UserDTO;
 import com.example.demo.domain.user.dto.UserMinimalDTO;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -37,6 +38,11 @@ public class BlogPost extends AbstractEntity {
     private String category;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JsonBackReference
+    @JoinTable(name = "blogpost_user",
+            joinColumns =
+            @JoinColumn(name = "blogpost_id", referencedColumnName = "id"),
+            inverseJoinColumns =
+            @JoinColumn(name = "user_id", referencedColumnName = "id"))
     private User user;
 }
