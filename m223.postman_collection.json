@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "3fa09124-a53a-497a-9092-b40fa50fd7ee",
+		"name": "m223",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26283250"
+	},
+	"item": [
+		{
+			"name": "get post by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfUkVBRCJ9LHsiYXV0aG9yaXR5IjoiREVGQVVMVCJ9LHsiYXV0aG9yaXR5IjoiQkxPR19SRUFEIn0seyJhdXRob3JpdHkiOiJVU0VSX01PRElGWSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19SRUFEIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg2MTQyMDEsImV4cCI6MTcwODcxNDIwMSwiaXNzIjoidWsyMjMifQ.9ug0-tFZeJPpqLrqwC1wnhmWyav1bKHas7ak8njxQmg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/blog/detailed-view/85e6dbdd-f6ae-49a7-85c3-c38190d079b6"
+			},
+			"response": []
+		},
+		{
+			"name": "post blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfQ1JFQVRFIn0seyJhdXRob3JpdHkiOiJCTE9HX0RFTEVURV9CWV9JRCJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9NT0RJRlkifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19ERUxFVEVfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJERUZBVUxUIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg3MDA3MDIsImV4cCI6MTcwODgwMDcwMiwiaXNzIjoidWsyMjMifQ.l2lWsnTAFal0E2aWVr0volYg_1SUTV6jbFtj-QVjt18"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":null,\r\n    \"title\":\"new admin post\",\r\n    \"text\":\"soo many cool text yes\",\r\n    \"category\":\"newNEWNEWNENW\",\r\n    \"user\":{\r\n        \"id\": \"ba804cb9-fa14-42a5-afaf-be488742fc54\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/blog/"
+			},
+			"response": []
+		},
+		{
+			"name": "update blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfQ1JFQVRFIn0seyJhdXRob3JpdHkiOiJCTE9HX0RFTEVURV9CWV9JRCJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9NT0RJRlkifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19ERUxFVEVfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJERUZBVUxUIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg3MDA3MDIsImV4cCI6MTcwODgwMDcwMiwiaXNzIjoidWsyMjMifQ.l2lWsnTAFal0E2aWVr0volYg_1SUTV6jbFtj-QVjt18"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":null,\r\n    \"title\":\"SCATTERR\",\r\n    \"text\":\"UPDATED\",\r\n    \"category\":\"UPDATED\",\r\n    \"user\":{\r\n        \"id\": \"ba804cb9-fa14-42a5-afaf-be488742fc54\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
+			},
+			"response": []
+		},
+		{
+			"name": "delete blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfQ1JFQVRFIn0seyJhdXRob3JpdHkiOiJCTE9HX0RFTEVURV9CWV9JRCJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9NT0RJRlkifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19ERUxFVEVfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJERUZBVUxUIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg3MDA3MDIsImV4cCI6MTcwODgwMDcwMiwiaXNzIjoidWsyMjMifQ.l2lWsnTAFal0E2aWVr0volYg_1SUTV6jbFtj-QVjt18"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/user/login"
+			},
+			"response": []
+		}
+	]
+}
