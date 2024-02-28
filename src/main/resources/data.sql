@@ -61,5 +61,6 @@ INSERT INTO blogpost (id, title, text, category, user_id) VALUES
 ('85e6dbdd-f6ae-49a7-85c3-c38190d079b6', 'title3', 'Integer euismod justo at magna efficitur, vel molestie quam laoreet.', 'Food', 'ba804cb9-fa14-42a5-afaf-be488742fc54'),
 ('9f8f84c6-4ab1-45c4-b6ee-a54461c92002', 'title4', 'Suspendisse vel risus in arcu varius auctor eget id magna.', 'Fashion', 'ba804cb9-fa14-42a5-afaf-be488742fc54'),
 ('a9b49925-5bbd-4baa-b473-4fb1406f2c96', 'title5', 'Dies ist ein Test-Beitrag', 'Test', '0d8fa44c-54fd-4cd0-ace9-2a7da57992de'),
-('c7c1d196-a9ad-410a-8a25-af919d65045b', 'title6', 'Ein weiterer Testbeitrag', 'Test', '1c5b661f-ac5d-436f-a839-941e611dcc41')
+('c7c1d196-a9ad-410a-8a25-af919d65045b', 'title6', 'Ein weiterer Testbeitrag', 'Test', '1c5b661f-ac5d-436f-a839-941e611dcc41'),
+('c7c1d196-a9ad-410a-8a25-af919d65045a', 'pLEASE FIX', 'Ein weiterer Testbeitrag', 'Test', 'ba804cb9-fa14-42a5-afaf-be488742fc54')
  ON CONFLICT DO NOTHING;
