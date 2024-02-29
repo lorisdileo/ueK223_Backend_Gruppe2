@@ -19,7 +19,7 @@ Im Backendprojekt sind schon zwei Users vorhanden.
 | user@example.com   | 1234     | USER  |
 
 
-Die Rechte sind so zugeteilt, dass der Admin alle Blogs lesen, bearbeiten und löschen kann, obwohl er die Blogs nicht seine sind. Der Admin kann eigene Blogs erstellen. Zusätzlich kann der Admin alle Benutzer anzeigen, bearbeiten und löschen.
+Die Rechte sind so zugeteilt, dass der Admin alle Blogs lesen, bearbeiten und löschen kann, obwohl die Blogs nicht seine sind. Der Admin kann eigene Blogs erstellen. Zusätzlich kann der Admin alle Benutzer anzeigen, bearbeiten und löschen.
 <br>
 Hingegen kann ein einfacher User einen Blog erstellen und den erstellten Blog auch bearbeiten und löschen. Der einfache Benutzer hat die Berechtigung, alle Blogs zu lesen, kann diese jedoch nicht verwalten, da er sie nicht erstellt hat.
 
@@ -29,7 +29,7 @@ Um das Projekt erst zu benutzen, gibt es einen Command, den Sie ausführen könn
 ```
 https://github.com/lorisdileo/ueK223_Backend_Gruppe2.git
 ```
-Danach können Sie den zuvor installierten Docker laufen lassen. Öffnen Sie das Projekt in IntelliJ und runen Sie das Projekt.
+Danach können Sie den zuvor installierten Docker laufen lassen. Öffnen Sie das Projekt in IntelliJ und runnen Sie das Projekt.
 
 ### Troubleshooting
 
