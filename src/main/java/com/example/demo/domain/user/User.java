@@ -42,8 +42,7 @@ public class User extends AbstractEntity {
              inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
   private Set<Role> roles = new HashSet<>();
 
-  @OneToMany(mappedBy = "user")
-  @Fetch(FetchMode.JOIN)
+  @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
   private Set<BlogPost> blogPosts;
 
   public User(UUID id, String firstName, String lastName, String email, String password, Set<Role> roles) {

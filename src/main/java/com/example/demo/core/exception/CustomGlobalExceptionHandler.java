@@ -38,9 +38,9 @@ public class CustomGlobalExceptionHandler {
 
   @ExceptionHandler({NoSuchElementException.class})
   @ResponseStatus(value = HttpStatus.NOT_FOUND)
-  public ResponseError handleNoSuchElement() {
+  public ResponseError handleNoSuchElement(Throwable e) {
     Map<String, String> errors = new HashMap<>();
-    errors.put("element", "Element wurde nicht gefunden");
+    errors.put("element", e.getMessage());
     return new ResponseError().setTimeStamp(LocalDate.now())
                               .setErrors(errors)
                               .build();

@@ -22,6 +22,7 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping(path = "/blog")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class BlogPostController {
 
     @Autowired
@@ -75,7 +76,7 @@ public class BlogPostController {
      * @return newly created blogPostDTO from database
      */
     @PostMapping(value = "/")
-    @PreAuthorize("hasAuthority('BLOG_CREATE')")
+    @PreAuthorize("hasAuthority('BLOG_CREATE')" )
     @Operation(
             summary = "Create a new blogPost",
             description = "Create a new blogPost. An authenticated and authorized user is required"
@@ -92,7 +93,7 @@ public class BlogPostController {
      */
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasAuthority('BLOG_DELETE_BY_ID')")
+    @PreAuthorize("hasAuthority('BLOG_DELETE_BY_ID') && @blogPostPermissionEvaluator.isPostForUser(authentication.principal.user, #id)")
     @Operation(
             summary = "Delete a BlogPost",
             description = "Delete a given BlogPost by its id. An authenticated and authorized user is required"
@@ -108,7 +109,7 @@ public class BlogPostController {
      * @param blogPost updated blogPostDTO
      */
     @PutMapping(path = "/{id}")
-    @PreAuthorize("hasAuthority('BLOG_MODIFY_BY_ID')")
+    @PreAuthorize("hasAuthority('BLOG_MODIFY_BY_ID') && @blogPostPermissionEvaluator.isPostForUser(authentication.principal.user, #id)")
     @Operation(
             summary = "Update a BlogPost",
             description = "Update a BlogPost by Id. An authenticated and authorized user is required"

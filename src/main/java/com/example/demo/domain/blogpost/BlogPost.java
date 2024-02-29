@@ -37,12 +37,8 @@ public class BlogPost extends AbstractEntity {
     @Size(min=1, max=100, message = "has to be between 1 and 100 characters")
     private String category;
 
-    @ManyToOne
+    @ManyToOne( fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id", nullable=false)
     @JsonBackReference
-    @JoinTable(name = "blogpost_user",
-            joinColumns =
-            @JoinColumn(name = "blogpost_id", referencedColumnName = "id"),
-            inverseJoinColumns =
-            @JoinColumn(name = "user_id", referencedColumnName = "id"))
     private User user;
 }

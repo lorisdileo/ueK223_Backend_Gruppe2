@@ -7,115 +7,644 @@
 	},
 	"item": [
 		{
-			"name": "get post by id",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfUkVBRCJ9LHsiYXV0aG9yaXR5IjoiREVGQVVMVCJ9LHsiYXV0aG9yaXR5IjoiQkxPR19SRUFEIn0seyJhdXRob3JpdHkiOiJVU0VSX01PRElGWSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19SRUFEIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg2MTQyMDEsImV4cCI6MTcwODcxNDIwMSwiaXNzIjoidWsyMjMifQ.9ug0-tFZeJPpqLrqwC1wnhmWyav1bKHas7ak8njxQmg"
-					}
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "anonymous",
+			"item": [
+				{
+					"name": "post blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n    \"title\":\"new admin post\",\r\n    \"text\":\"soo many cool text yes\",\r\n    \"category\":\"newNEWNEWNENW\",\r\n    \"user\":{\r\n        \"id\": \"ba804cb9-fa14-42a5-afaf-be488742fc54\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/"
+					},
+					"response": []
 				},
-				"url": "http://localhost:8080/blog/detailed-view/85e6dbdd-f6ae-49a7-85c3-c38190d079b6"
-			},
-			"response": []
+				{
+					"name": "update blog Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n    \"title\":\"SCATTERR\",\r\n    \"text\":\"UPDATED\",\r\n    \"category\":\"UPDATED\",\r\n    \"user\":{\r\n        \"id\": \"ba804cb9-fa14-42a5-afaf-be488742fc54\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
+					},
+					"response": []
+				},
+				{
+					"name": "delete blog Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/detailed-view/85e6dbdd-f6ae-49a7-85c3-c38190d079b6"
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of received objects is higher than 0' ,function () {\r",
+									"    const data = pm.response.json()\r",
+									"    pm.expect(data.length).to.be.greaterThan(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/feed"
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts paginate and sort by title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/feed/0"
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"name": "post blog",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfQ1JFQVRFIn0seyJhdXRob3JpdHkiOiJCTE9HX0RFTEVURV9CWV9JRCJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9NT0RJRlkifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19ERUxFVEVfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJERUZBVUxUIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg3MDA3MDIsImV4cCI6MTcwODgwMDcwMiwiaXNzIjoidWsyMjMifQ.l2lWsnTAFal0E2aWVr0volYg_1SUTV6jbFtj-QVjt18"
-					}
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\":null,\r\n    \"title\":\"new admin post\",\r\n    \"text\":\"soo many cool text yes\",\r\n    \"category\":\"newNEWNEWNENW\",\r\n    \"user\":{\r\n        \"id\": \"ba804cb9-fa14-42a5-afaf-be488742fc54\"\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "user",
+			"item": [
+				{
+					"name": "login user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Set login\r",
+									"pm.test(\"Auth\", function () {\r",
+									"    var auth = pm.response.headers.get(\"Authorization\");\r",
+									"    console.log(auth);\r",
+									"    pm.collectionVariables.set(\"authtokenuser\", auth);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Person is a User\", () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson.email).to.eql(\"user@example.com\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user/login"
+					},
+					"response": []
+				},
+				{
+					"name": "post blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n    \"title\":\"new user post\",\r\n    \"text\":\"soo many cool text yes\",\r\n    \"category\":\"newNEWNEWNENW\",\r\n    \"user\":{\r\n        \"id\": \"0d8fa44c-54fd-4cd0-ace9-2a7da57992de\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/"
+					},
+					"response": []
+				},
+				{
+					"name": "update blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n    \"title\":\"SCATTERR\",\r\n    \"text\":\"UPDATED\",\r\n    \"category\":\"UPDATED\",\r\n    \"user\":{\r\n        \"id\": \"0d8fa44c-54fd-4cd0-ace9-2a7da57992de\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/a9b49925-5bbd-4baa-b473-4fb1406f2c96"
+					},
+					"response": []
+				},
+				{
+					"name": "delete own blog",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
+					},
+					"response": []
+				},
+				{
+					"name": "delete blog of other user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiREVGQVVMVCJ9LHsiYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJVU0VSX0RFTEVURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19DUkVBVEUifSx7ImF1dGhvcml0eSI6IlVTRVJfTU9ESUZZIn0seyJhdXRob3JpdHkiOiJCTE9HX01PRElGWV9CWV9JRCJ9LHsiYXV0aG9yaXR5IjoiQkxPR19ERUxFVEVfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfQ1JFQVRFIn1dLCJpYXQiOjE3MDkxMjY0MzAsImV4cCI6MTcwOTIyNjQzMCwiaXNzIjoidWsyMjMifQ.uDAbirgyqkzyaZU-1Aaa4rfAiE5CuJgODGJfIpRK1Dc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/detailed-view/85e6dbdd-f6ae-49a7-85c3-c38190d079b6"
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of received objects is higher than 0' ,function () {\r",
+									"    const data = pm.response.json()\r",
+									"    pm.expect(data.length).to.be.greaterThan(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfUkVBRCJ9LHsiYXV0aG9yaXR5IjoiREVGQVVMVCJ9LHsiYXV0aG9yaXR5IjoiQkxPR19SRUFEIn0seyJhdXRob3JpdHkiOiJVU0VSX01PRElGWSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19SRUFEIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg2MTQyMDEsImV4cCI6MTcwODcxNDIwMSwiaXNzIjoidWsyMjMifQ.9ug0-tFZeJPpqLrqwC1wnhmWyav1bKHas7ak8njxQmg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/feed"
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts paginate and sort by title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of received objects is higher than 0' ,function () {\r",
+									"    const data = pm.response.json()\r",
+									"    pm.expect(data.length).to.be.greaterThan(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfUkVBRCJ9LHsiYXV0aG9yaXR5IjoiREVGQVVMVCJ9LHsiYXV0aG9yaXR5IjoiQkxPR19SRUFEIn0seyJhdXRob3JpdHkiOiJVU0VSX01PRElGWSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19NT0RJRllfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfREVMRVRFX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19SRUFEIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg2MTQyMDEsImV4cCI6MTcwODcxNDIwMSwiaXNzIjoidWsyMjMifQ.9ug0-tFZeJPpqLrqwC1wnhmWyav1bKHas7ak8njxQmg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/blog/feed/0"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "{{authtokenuser}}"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
 					}
 				},
-				"url": "http://localhost:8080/blog/"
-			},
-			"response": []
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
-			"name": "update blog",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfQ1JFQVRFIn0seyJhdXRob3JpdHkiOiJCTE9HX0RFTEVURV9CWV9JRCJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9NT0RJRlkifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19ERUxFVEVfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJERUZBVUxUIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg3MDA3MDIsImV4cCI6MTcwODgwMDcwMiwiaXNzIjoidWsyMjMifQ.l2lWsnTAFal0E2aWVr0volYg_1SUTV6jbFtj-QVjt18"
-					}
-				},
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\":null,\r\n    \"title\":\"SCATTERR\",\r\n    \"text\":\"UPDATED\",\r\n    \"category\":\"UPDATED\",\r\n    \"user\":{\r\n        \"id\": \"ba804cb9-fa14-42a5-afaf-be488742fc54\"\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "admin",
+			"item": [
+				{
+					"name": "login admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Set login auth\r",
+									"pm.test(\"set auth\", function () {\r",
+									"    var auth = pm.response.headers.get(\"Authorization\");\r",
+									"    console.log(auth);\r",
+									"    pm.collectionVariables.set(\"authtokenadmin\", auth);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Person is Admin\", () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson.email).to.eql(\"admin@example.com\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user/login"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user/ba804cb9-fa14-42a5-afaf-be488742fc54"
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "get all users Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "{{authtokenadmin}}"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
 					}
 				},
-				"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
-			},
-			"response": []
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "authtokenuser",
+			"value": ""
 		},
 		{
-			"name": "delete blog",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUl9ERUxFVEUifSx7ImF1dGhvcml0eSI6IkJMT0dfQ1JFQVRFIn0seyJhdXRob3JpdHkiOiJCTE9HX0RFTEVURV9CWV9JRCJ9LHsiYXV0aG9yaXR5IjoiVVNFUl9NT0RJRlkifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJCTE9HX0NSRUFURSJ9LHsiYXV0aG9yaXR5IjoiQkxPR19ERUxFVEVfQllfSUQifSx7ImF1dGhvcml0eSI6IkJMT0dfTU9ESUZZX0JZX0lEIn0seyJhdXRob3JpdHkiOiJERUZBVUxUIn1dLCJzdWIiOiJiYTgwNGNiOS1mYTE0LTQyYTUtYWZhZi1iZTQ4ODc0MmZjNTQiLCJpYXQiOjE3MDg3MDA3MDIsImV4cCI6MTcwODgwMDcwMiwiaXNzIjoidWsyMjMifQ.l2lWsnTAFal0E2aWVr0volYg_1SUTV6jbFtj-QVjt18"
-					}
-				},
-				"method": "DELETE",
-				"header": [],
-				"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
-			},
-			"response": []
-		},
-		{
-			"name": "login",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"1234\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "http://localhost:8080/user/login"
-			},
-			"response": []
+			"key": "authtokenadmin",
+			"value": ""
 		}
 	]
 }
