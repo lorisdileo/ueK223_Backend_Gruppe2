@@ -83,7 +83,25 @@
 				},
 				{
 					"name": "delete blog Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
@@ -323,19 +341,47 @@
 				},
 				{
 					"name": "delete own blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
+						"url": "http://localhost:8080/blog/a9b49925-5bbd-4baa-b473-4fb1406f2c96"
 					},
 					"response": []
 				},
 				{
 					"name": "delete blog of other user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:8080/blog/bfd33f6c-6727-4bd0-8087-72f0ff6d7eb7"
+						"url": "http://localhost:8080/blog/9f8f84c6-4ab1-45c4-b6ee-a54461c92002"
 					},
 					"response": []
 				},
@@ -435,7 +481,7 @@
 								"exec": [
 									"pm.test('Number of received objects is higher than 0' ,function () {\r",
 									"    const data = pm.response.json()\r",
-									"    pm.expect(data.length).to.be.greaterThan(0);\r",
+									"    pm.expect(data.length).to.be.equal(4);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Status code is 200\", function () {\r",
@@ -568,32 +614,39 @@
 				},
 				{
 					"name": "get all users",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"raw": "{\r\n        \"id\": \"0d8fa44c-54fd-4cd0-ace9-2a7da57992de\",\r\n    \"firstName\": \"Tylerina\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8080/user"
+						"url": "http://localhost:8080/user/0d8fa44c-54fd-4cd0-ace9-2a7da57992de"
 					},
 					"response": []
 				},
 				{
-					"name": "get all users Copy",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "delete user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -604,7 +657,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/user"
+						"url": "http://localhost:8080/user/1c5b661f-ac5d-436f-a839-941e611dcc41"
 					},
 					"response": []
 				}
@@ -637,14 +690,35 @@
 			]
 		}
 	],
-	"variable": [
+	"event": [
 		{
-			"key": "authtokenuser",
-			"value": ""
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
 		{
 			"key": "authtokenadmin",
 			"value": ""
+		},
+		{
+			"key": "authtokenuser",
+			"value": "",
+			"type": "string"
 		}
 	]
 }

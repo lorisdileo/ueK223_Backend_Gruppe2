@@ -12,7 +12,9 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.util.UUID;
-
+/*
+ * basic DTO, mainly used in frontend
+ */
 @NoArgsConstructor
 @Getter
 @Setter

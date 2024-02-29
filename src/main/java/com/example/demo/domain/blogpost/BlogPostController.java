@@ -1,6 +1,5 @@
 package com.example.demo.domain.blogpost;
 import com.example.demo.domain.blogpost.dto.BlogPostDTO;
-import com.example.demo.domain.blogpost.dto.CreateBlogPostDTO;
 import com.example.demo.domain.blogpost.dto.BlogPostMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
@@ -44,6 +43,11 @@ public class BlogPostController {
         return ResponseEntity.ok().body(blogPostMapper.toDTOs(blogPostService.findAll()));
     }
 
+    /**
+     * Return all blogPosts from the database with paging, 4 objects per page sorted by title
+     *
+     * @return list of blog posts
+     */
     @GetMapping({"", "/feed/{pageNum}"})
     @Operation(
             summary = "Read All BlogPosts",
@@ -89,7 +93,6 @@ public class BlogPostController {
      * Delete a blogPost from given id
      *
      * @param id blogPost id from path
-     * @since 1.0
      */
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -107,6 +110,7 @@ public class BlogPostController {
      *
      * @param id    blogPost id
      * @param blogPost updated blogPostDTO
+     * @return updated blogPost
      */
     @PutMapping(path = "/{id}")
     @PreAuthorize("hasAuthority('BLOG_MODIFY_BY_ID') && @blogPostPermissionEvaluator.isPostForUser(authentication.principal.user, #id)")
